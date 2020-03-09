@@ -6,7 +6,7 @@ from application import app
 @app.route('/')
 @app.route('/home')
 def home():
- return render_template('home.html', title='Home')
+ return render_template('home.html', title='Home', blogData = blogData )
  
 @app.route('/about')
 def about():
@@ -16,3 +16,15 @@ def about():
 def register():
     return render_template('register.html', title="Register")
 
+blogData = [
+    {  
+        "name": {"first":"John", "last":"Doe"},
+        "title":"First Post",
+        "content":"This is some blog data for Flask lectures"
+    },
+    {   
+        "name": {"first":"Jane", "last":"Doe"},
+        "title":"Second Post",
+        "content":"This is even more blog data for Flask lectures"
+    }
+]
