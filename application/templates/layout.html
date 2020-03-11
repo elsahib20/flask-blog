@@ -293,18 +293,26 @@ footer > span {
         
                     </div>
                   </li>
+                  {% if current_user.is_authenticated %}
                   <li>
-                    <a href="{{ url_for('register') }}" class="nav-link">Register</a></li>
+                  <a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
                   <li>
-                    <a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+                  <a href="{{ url_for('about') }}" class="nav-link">About</a></li>
                   <li>
-                    <a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
-                    <li>
-                      <a href="{{ url_for('post') }}" class="nav-link">Posts</a></li>
-                      {% if current_user.is_authenticated %}
-                      <li>
-                        <a href="{{ url_for('logout') }}" class="nav-link">{{ current_user.email }} <br>Logout</a></li>
-                        {% endif %}
+                  <a href="{{ url_for('post') }}" class="nav-link">Posts</a></li>
+                  <li>
+                  <a href="{{ url_for('logout') }}" class="nav-link">{{ current_user.email }} <br>Logout</a></li>
+                  
+                  {% else %}
+                  <li>
+                  <a href="{{ url_for('register') }}" class="nav-link">Register</a></li>
+                  <li>
+                  <a href="{{ url_for('login') }}" class="nav-link">Login</a></li>
+                  <li>
+                  <a href="{{ url_for('home') }}" class="nav-link">Home</a></li>
+                  <li>
+                  <a href="{{ url_for('about') }}" class="nav-link">About</a></li>
+                  {% endif %}
 
                 </ul>
               </nav>
