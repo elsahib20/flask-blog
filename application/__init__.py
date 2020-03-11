@@ -6,10 +6,16 @@ from flask_sqlalchemy import SQLAlchemy
 from os import getenv
 #import bcrypt
 from flask_bcrypt import Bcrypt
+#import from flask_login
+from flask_login import LoginManager
 # create a new instance of Flask and store it in app 
 app = Flask(__name__)
 #add bcrypt object
 bcrypt = Bcrypt(app)
+#add loginmanager object
+login_manager = LoginManager(app)
+#defining which function handles logins
+login_manager.login_view = 'login'
 #add the URI to the app
 app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
 # set this to avoid getting warnings
